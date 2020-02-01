@@ -36,15 +36,16 @@ js语句基本规则
 - 先看第一个表达式转换成布尔值的结果，如果结果为真，那么它会看第二个表达式转换为布尔值得结果，然后如果只有两个表达式的话，只看第二个表达式，就可以返回该表达式的值;
 
 - 如果第一个表达式的值为假，直接返回false； 短路效应；
-
-    var a = 1 && 2;
-    console.log(a); // 2
-    var a = 1 && 1 && 2
-    console.log(a); // 2
-    var a = 1 && false && 2;
-    console.log(a); // false;
-    var a = 0 && 2;
-    console.log(a); // 0
+```javascript
+var a = 1 && 2;
+console.log(a); // 2
+var a = 1 && 1 && 2
+console.log(a); // 2
+var a = 1 && false && 2;
+console.log(a); // false;
+var a = 0 && 2;
+console.log(a); // 0
+```
 
 
 
