@@ -9,5 +9,21 @@
   - 变量名可以包括英文字母、_、$、数字
   - 不可以用系统的关键字、保留字作为变量名
 
-原始值
-Number String Boolean undefined null
+原始值（栈数据） stack
+
+不可改变
+
+- Number String Boolean undefined null
+
+引用值（堆数据）
+
+- array，object，function
+
+js语句基本规则
+
+- 语句后面要用分号结束“；”
+- js语法错误会引发后续代码终止，但不会影响其他js代码块
+- 书写格式要规范，“=+/-*”两边都应该有空格
+
+
+
