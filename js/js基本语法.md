@@ -56,6 +56,21 @@ console.log(a); // 0
 - 取反
 
 
+编程形式的区别
+
+- 面向过程
+- 面向对象
+
+typeof的返回值
+
+- number 
+- string 
+- boolean 
+- object 
+- undefined 
+- function
+
+
 
 
 
