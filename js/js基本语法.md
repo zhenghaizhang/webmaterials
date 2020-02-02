@@ -70,6 +70,16 @@ typeof的返回值
 - undefined 
 - function
 
+显示类型转换
+
+- Number(mix)
+- parseInt(string, radix)  # 转换进制，以radix为基准转换成十进制
+- parseFloat(string)
+- toString(radix)  # undefined、null没有toString方法；以十进制为基准转换成目标进制
+- String()
+- Boolean()
+
+隐式类型转换
 
 
 
