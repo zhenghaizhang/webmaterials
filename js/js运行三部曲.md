@@ -148,3 +148,34 @@ function test(a, b) {
 }
 test(1);
 ```
+
+
+针对全局情况
+
+- 生成了一个GO对象；Global Object；GO === window
+
+  ```javascript
+  function test() {
+      var a = b = 123;
+      console.log(window.a); // undefined
+      console.log(window.b); // 123
+  }
+  test();
+  ```
+
+  全局预编译发生在全局执行的前一刻；
+
+```javascript
+console.log(test); // function test(test){...}
+
+function test(test) {
+    console.log(test); // function test () {}
+    var test = 234;
+    console.log(test); // 234
+
+    function test() {}
+}
+test(1);
+var test = 123;
+```
+
