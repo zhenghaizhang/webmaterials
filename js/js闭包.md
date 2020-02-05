@@ -86,3 +86,49 @@ for (var j = 0; j < 3; j++) {
 ```
 
 
+> 闭包的经典案例：
+>
+> ```javascript
+> <ul>
+>         <li>a</li>
+>         <li>a</li>
+>         <li>a</li>
+>         <li>a</li>
+>     </ul>
+> ```
+>
+> 使用原生js，addEventListener，给每个li元素绑定一个click事件，并输出他们的顺序。
+
+> 错误写法：
+>
+> ```javascript
+> function test() {
+>     var liCollection = document.getElementsByTagName('li');
+>     for (var i = 0; i < liCollection.length; i++) {
+>         liCollection[i].onclick = function() {
+>             console.log(i);
+>         }
+>     }
+> }
+> 
+> test();
+> ```
+
+> 正确写法：
+>
+> ```javascript
+> function test() {
+>     var liCollection = document.getElementsByTagName('li');
+>     for (var i = 0; i < liCollection.length; i++) {
+>         (function(j) {
+>             liCollection[j].onclick = function() {
+>                 console.log(j);
+>             }
+>         }(i)); // 立即执行函数
+>     }
+> }
+> 
+> test();
+> ```
+>
+> 
