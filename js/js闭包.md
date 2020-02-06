@@ -37,7 +37,20 @@
   - Person();
 
 - 模块化开发，防止污染全局变量
+```javascript
+var name = 'abc';
+var init = (function() {
+    var name = 'bcd';
 
+    function callName() {
+        console.log(name);
+    }
+    return function() {
+        callName();
+    }
+}());
+init();
+```
 
 
 闭包案例，bug
