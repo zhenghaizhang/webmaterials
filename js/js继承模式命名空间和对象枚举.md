@@ -66,3 +66,143 @@
       }
   }());
   ```
+
+
+
+
+命名空间
+
+- 管理变量，防止污染全局，适用于模块化开发；
+
+  ```javascript
+  var name = 'abc';
+  var init = (function() {
+      var name = 'bcd';
+  
+      function callName() {
+          console.log(name);
+      }
+      return function() {
+          callName();
+      }
+  }());
+  init();
+  ```
+
+
+
+如何实现链式调用模式（模仿jquery）
+
+- obj.eat().smoke().drink().eat().sleep();
+
+  ```javascript
+  var deng = {
+      smoke: function() {
+          console.log('Smoking...')
+          return this;
+      },
+      drink: function() {
+          console.log('Drink....')
+          return this;
+      },
+      perm: function() {
+          console.log('perming...')
+          return this;
+      }
+  }
+  console.log(deng.smoke().drink().perm());
+  ```
+
+- 属性表示方法
+
+  - obj.prop
+
+  - obj]["prop"]
+
+    ```javascript
+    var deng = {
+        son1: { name: "xiaoyi" },
+        son2: { name: "xiaoer" },
+        son3: { name: "xiaosan" },
+        son4: { name: "xiaosi" },
+        saySon: function(num) {
+            return this['son' + num]
+        }
+    }
+    ```
+
+对象的枚举
+
+- for in 
+
+  ```javascript
+  var deng = {
+      son1: { name: "xiaoyi" },
+      son2: { name: "xiaoer" },
+      son3: { name: "xiaosan" },
+      son4: { name: "xiaosi" },
+      saySon: function(num) {
+          return this['son' + num]
+      }
+  }
+  
+  for (var key in deng) {
+      console.log(key);
+      console.log(deng[key])
+  }
+  ```
+
+- hasOwnProperty
+
+  ```javascript
+  // 判断是不是系统的方法和属性
+  var deng = {
+      son1: { name: "xiaoyi" },
+      son2: { name: "xiaoer" },
+      son3: { name: "xiaosan" },
+      son4: { name: "xiaosi" },
+      saySon: function(num) {
+          return this['son' + num]
+      },
+      __proto__: {
+          lastName: "zhang"
+      }
+  }
+  
+  for (var key in deng) {
+      if (deng.hasOwnProperty(key)) {//此处过滤掉__proto__
+          console.log(key);
+          console.log(deng[key])
+      }
+  }
+  ```
+
+- in 
+
+- instanceof 
+
+  A instanceof B // A对象是不是B构造函数构造出来的
+
+  **看A对象的原型链上有没有B的原型**
+
+  
+
+  判断数组[]和对象{}的类型的三种方法
+
+  ``` 
+  var arr = [];
+  var obj = {};
+  // 方法1
+  console.log(arr.constructor); // ƒ Array() { [native code] }
+  console.log(obj.constructor); // ƒ Object() { [native code] }
+  
+  // 方法2
+  console.log(arr instanceof Array);  // true
+  console.log(obj instanceof Object);  // true
+  
+  // 方法3
+  Object.prototype.toString.call({}) // "[object Object]"
+  Object.prototype.toString.call([]) // "[object Array]"
+  ```
+
+  
