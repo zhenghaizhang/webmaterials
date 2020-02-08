@@ -158,7 +158,7 @@ console.log(typeof a()); // Error: a is not defined
 // 一个字符串[a-z]组成，请找出该字符串第一个只出现一次的字母； 
 
 // var str = "wurvoqfewurowqeraiweorispsdufbsodk";
-var str = "qwqwaeeb"
+var str = "ccqwqwaeeb"
 
 function firstNoRepeat(str) {
     var len = str.length,
@@ -174,7 +174,7 @@ function firstNoRepeat(str) {
 
     for (var prop in obj) {
         if (1 == obj[prop].count) {
-            console.log(prop, obj[prop]);
+            console.log(str + "中第一次只出现一次的字母为：" + prop);
             return;
         }
     }
