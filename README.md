@@ -27,3 +27,8 @@
 结构 行为 样式 相分离
 
 HTML JS CSS
+
+JavaScript三大部分：
+- ECMAScript
+- DOM
+- BOM
