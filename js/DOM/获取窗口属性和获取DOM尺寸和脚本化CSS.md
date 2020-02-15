@@ -167,3 +167,94 @@ DOM（BOM）基本操作
     ```
 
     
+
+- 脚本化CSS
+
+  - dom.style.prop   可读可写（只有此方法可写）  // 行间样式
+
+    - 可读写**行间样式**，没有兼容性问题，碰到float这样的保留字属性，前面应加CSS
+
+    - eg: float -->  cssFloat
+
+      ```javascript
+      div.style.cssFloat = "right";
+      ```
+
+    - 复合属性必须拆解，组合单词变成小驼峰式写法
+
+      ```javascript
+      div.style.backgroundColor = "green";
+      ```
+
+    - 写入的值必须是字符串格式
+
+- 查询计算样式
+
+  - window.getComputedStyle(ele, null)   // 获取元素的所有显示值  绝对值
+
+    **第二个参数null，解决的伪元素问题；**
+
+    ```css
+    div::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            display: inline-block;
+        }
+    ```
+
+    ```javascript
+    window.getComputedStyle(div, "after").width // 50px
+    ```
+
+  - 计算样式只读
+
+  - 返回的计算样式的值都是绝对值，没有相对单位
+
+  - IE8及IE8以下不兼容
+
+    - 查询样式
+      - ele.currentStyle
+      - 计算样式只读
+      - 返回的计算样式的值不是经过转换的绝对值
+      - IE独有的属性
+
+- 封装兼容性方法getStyle(ele, prop)
+
+  ```javascript
+  var div = document.getElementsByTagName('div')[0];
+  
+  function getStyle(elem, prop) {
+      if (window.getComputedStyle) {
+          return window.getComputedStyle(elem, null)[prop];
+      } else {
+          return elem.currentStyle[prop];
+      }
+  }
+  console.log(getStyle(div, "width"))
+  ```
+
+案例：让方块运动
+
+```javascript
+function getStyle(elem, prop) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elem, null)[prop];
+    } else {
+        return elem.currentStyle[prop];
+    }
+}
+
+var div = document.getElementsByTagName('div')[0];
+
+var timer = setInterval(function() {
+    div.style.left = parseInt(getStyle(div, 'left')) + 10 + "px";
+
+    if (parseInt(div.style.left) > 100) {
+        clearInterval(timer);
+    }
+}, 1000);
+```
+
+
