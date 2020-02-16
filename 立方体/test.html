@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立体盒子</title>
+    <style>
+        .box {
+            height: 300px;
+            width: 300px;
+            margin: 100px auto;
+            position: relative;
+            transform: rotate3d(1, 1, 0, -30deg);
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+        
+        .box>div {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            opacity: 0.6;
+            border: 1px solid black;
+        }
+        
+        .front {
+            background-color: red;
+            transform: translateZ(150px);
+        }
+        
+        .back {
+            background-color: yellowgreen;
+            transform: translateZ(-150px) rotateX(180deg);
+        }
+        
+        .left {
+            background-color: grey;
+            transform: translateX(-150px) rotateY(90deg);
+        }
+        
+        .right {
+            background-color: magenta;
+            transform: translateX(150px) rotateY(90deg);
+        }
+        
+        .top {
+            background-color: deepskyblue;
+            transform: translateY(-150px) rotateX(90deg);
+        }
+        
+        .bottom {
+            background-color: peachpuff;
+            transform: translateY(150px) rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="front"><img src="image/1.jpg" style="width: 300px;height: 300px;" alt=""></div>
+        <div class="back"><img src="image/2.jpg" style="width: 300px;height: 300px;" alt=""></div>
+        <div class="left"><img src="image/3.png" style="width: 300px;height: 300px;" alt=""></div>
+        <div class="right"><img src="image/4.png" style="width: 300px;height: 300px;" alt=""></div>
+        <div class="top"><img src="image/5.jpg" style="width: 300px;height: 300px;" alt=""></div>
+        <div class="bottom"><img src="image/6.jpg" style="width: 300px;height: 300px;" alt=""></div>
+    </div>
+
+</body>
+
+</html>
