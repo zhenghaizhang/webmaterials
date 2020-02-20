@@ -115,3 +115,82 @@ RegExp对象方法
 
 
 
+字符串的replace（直接替换）
+
+```javascript
+var str = "abcdefa";
+console.log(str.replace('a', 'b')); // bbcdefa
+```
+
+正则表达式的replace
+
+```javascript
+var reg = /a/g;
+var str = "abcdefa";
+console.log(str.replace(reg, 'b')); // bbcdefb
+```
+
+字符串变形：aabb-->bbaa
+
+```javascript
+var reg = /(\w)\1(\w)\2/g;
+var str = "aabb";
+console.log(str.replace(reg, '$2$2$1$1')); // bbcdefb
+```
+
+字符串变形：aabb-->bbaa第二种方法
+
+```javascript
+var reg = /(\w)\1(\w)\2/g;
+var str = "aabb";
+console.log(str.replace(reg, function($, $1, $2) { 
+  // 第一个变量是全局
+    return $2 + $2 + $1 + $1
+})); // bbaa
+```
+
+
+
+
+
+案例：连字符连接的单词改成驼峰表达式
+
+```javascript
+// 原始字符串：the-first-name
+// 修改后的字符串：theFirstName
+
+var reg = /-(\w)/g;
+var str = "the-first-name";
+console.log(str.replace(reg, function($, $1) {
+    return $1.toUpperCase();
+}));
+```
+
+连字符连接的单词改成首字母大写方式
+
+```javascript
+// 原始字符串：the-first-name
+// 修改后的字符串：The-First-Name
+
+var reg = /(^(\w)|-(\w))/g;
+var str = "the-first-name";
+console.log(str.replace(reg, function($, $1) {
+    return $1.toUpperCase();
+}));
+```
+
+
+
+> ?=n：匹配任何其后紧接指定字符串n的字符串
+
+```javascript
+// 正向预查，正向断言
+var str = "abaaaa";
+var reg = /a(?=b)/g;
+
+console.log(str.match(reg)); // 其后紧接指定字符串b
+```
+
+
+
+
