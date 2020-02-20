@@ -194,3 +194,34 @@ console.log(str.match(reg)); // 其后紧接指定字符串b
 
 
 
+默认为贪婪模式，改成非贪婪模式
+
+```javascript
+// 改成非贪婪模式
+
+var str = "aaaaaa";
+var reg = /a+/g; // 贪婪模式
+var reg2 = /a+?/g; // 非贪婪模式
+
+console.log(str.match(reg)); // aaaaaa
+console.log(str.match(reg2)); // ["a", "a", "a", "a", "a", "a"]
+```
+
+案例：将字符串中连续重复的元素去重
+
+```javascript
+var str = "aaaaaaabbbbbbcccc"
+var reg = /(\w)\1*/g
+console.log(str.replace(reg, "$1")); // abc
+```
+
+案例：将大数字改成千分位分隔符形式
+
+```javascript
+// 1000000   --> 1,000,000
+var str = "112000000000"
+var reg = /(?=(\B)(\d{3})+$)/g;
+// 空后面跟着非单词边界，数字从后往前数每三个为一组
+console.log(str.replace(reg, ",")); // 112,000,000,000
+```
+
