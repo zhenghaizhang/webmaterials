@@ -31,6 +31,23 @@ HTML之form表单
 
 
 
+---
+HTML之img标签
+
+初始化
+
+```css
+img {
+    display: block;
+}
+```
+
+图片是内联元素，同时又是替换元素，替换元素是能设置宽高的。
+
+内联元素通过display:block; 转成块状元素，即可设置margin值。
+
+
+
 
 
 
