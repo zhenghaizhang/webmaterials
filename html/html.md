@@ -27,6 +27,28 @@ HTML标签之a标签
   <a href="javascript:alert(1)">弹出1</a>
   ```
 
+css允许我们针对a标签的4中状态设置各自的css特性，叫做css伪类。
+
+- active一般不用写
+
+- 顺序注意：lvha
+
+- a:link可以简写为a
+
+
+HTML之table
+
+```css
+table {
+    border-collapse: collapse; /*默认为separate*/
+}
+```
+
+```html
+<td rowspan="2"></td> 跨两行
+<td colspan="4"></td> 跨四列
+```
+
 HTML之form表单
 
 
