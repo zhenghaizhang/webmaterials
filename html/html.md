@@ -51,6 +51,24 @@ table {
 
 HTML之form表单
 
+发送数据
+
+```html
+<form action="" method="get">
+  <p>
+    用户名：<input type="text" name="usernmae" id="">
+  </p>
+  <p>
+    密码：<input type="password" name="password" id="">
+  </p>
+  <input type="submit" value="提交">
+</form>
+```
+
+
+
+
+
 
 
 ---
