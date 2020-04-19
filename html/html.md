@@ -110,7 +110,9 @@ table {
 </div>
 ```
 
+兄弟节点的margin塌陷问题，选择不解决，通过数学方式解决；
 
+例如上面节点margin-bottom200px；下面节点margin-top100px；解决办法：直接将上面节点margin-bottom设置为300px；或者下面节点margin-top300px。
 
 
 
