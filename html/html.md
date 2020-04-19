@@ -1,5 +1,4 @@
-
-HTML标签之a标签
+### HTML标签之a标签
 
 - 超链接：较常用的功能
 
@@ -35,8 +34,7 @@ css允许我们针对a标签的4中状态设置各自的css特性，叫做css伪
 
 - a:link可以简写为a
 
-
-HTML之table
+### HTML之table
 
 ```css
 table {
@@ -49,7 +47,7 @@ table {
 <td colspan="4"></td> 跨四列
 ```
 
-HTML之form表单
+### HTML之form表单
 
 发送数据
 
@@ -67,12 +65,59 @@ HTML之form表单
 
 
 
+### HTML之BFC
+
+如何触发一个盒子的bfc
+
+> position:absolute;
+>
+> display:inline-block;
+>
+> float:left/right;
+>
+> overflow:hidden;
+
+解决margin塌陷问题，改变父级的渲染规则，使父级变成一个bfc，子级和父级之间产生的margin塌陷问题就解决了。
+
+```html
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper{
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    /* border-top: 1px solid red;  */  /* 暴力解决问题 */
+    overflow: hidden;  /* 解决margin塌陷问题 */
+  }
+  .content{
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+  }
+</style>
+
+
+<div class="wrapper">
+  <div class="content"></div>
+</div>
+```
+
+
+
 
 
 
 
 ---
-HTML之img标签
+### HTML之img标签
 
 初始化
 
