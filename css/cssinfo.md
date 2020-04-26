@@ -119,3 +119,26 @@ BFC（Block Formatting Context）格式化上下文，是Web页面中盒模型�
 
 
 
+css文字溢出处理
+
+单行文本出现...
+
+```css
+p{
+  width: 200px;
+  border: 1px solid red;
+  height: 20px;
+  line-height: 20px;
+  /*如下三件套*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```
+
+多行文本出现...
+
+多行文本只做截断，不做打点。
+
+
+
