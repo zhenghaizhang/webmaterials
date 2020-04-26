@@ -142,3 +142,60 @@ p{
 
 
 
+当图片显示不出来时，也要保证网站的正常运行（显示内容）
+
+```html
+<body>
+
+  <a class="img1" href="" target="_blank">淘宝网</a>
+  <br>
+  <a class="img2" href="" target="_blank">淘宝网</a>
+
+</body>
+```
+
+css的协作方法
+
+```css
+.img1 {
+  display: block;
+  text-decoration: none;
+  color: #424242;
+  width: 190px;
+  height: 90px;
+  border: 1px solid black;
+  background-image: url("../../static/imgs/taobao.png");
+  background-repeat: no-repeat;
+  background-size: 190px 90px;
+  text-indent: 190px;
+  white-space: nowrap; 
+  overflow: hidden;
+}
+
+.img2 {
+  display: block;
+  text-decoration: none;
+  color: #424242;
+  border: 1px solid black;
+  width: 190px;
+  height: 0px;
+  padding-top: 90px;
+  overflow: hidden;
+  background-image: url("../../static/imgs/taobao.png");
+  background-repeat: no-repeat;
+  background-size: 190px 90px;
+
+}
+```
+
+
+
+
+
+行级元素只能套行级元素
+
+块级元素既可以套行级元素也可以套块级元素
+
+p标签不能嵌套div
+
+a标签不能嵌套a标签
